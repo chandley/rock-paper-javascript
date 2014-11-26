@@ -6,6 +6,7 @@
     body {
       font-family: 'Helvetica Neue';
       margin: 15px 0 0 30px;
+      background-color: lightgrey;
     }
 
     .choices img {
@@ -46,7 +47,7 @@
       margin-bottom: 10px;
     }
 
-    #carosel{
+    #page{
       /* This the main container div */
       width:1000px;
       min-height:700px;
@@ -69,7 +70,7 @@
       /* The two arrows */
       width:44px;
       height:44px;
-      background:url('img/arrows.png') no-repeat;
+      background:url('images/rock.png') no-repeat;
       position:absolute;
       top:50%;
       margin-top:-22px;
@@ -146,17 +147,17 @@
       <ul id="results">
       </ul>
 
-      <div id="carosel">
+      <div id="page">
 
         <div id="phoneCarousel">
           <div class="previous arrow"></div>
           <div class="next arrow"></div>
 
           <div id="stage">
-            <img id="rock" class="default" src="images/rock.png" width="270" height="400" alt="rock" />
-            <img id="paper" src="images/paper.png" width="270" height="400" alt="paper" />
-            <img id="scissors" src="images/scissors.png" width="270" height="400" alt="scissors" />
-            <img id="lizard" src="images/lizard.png" width="270" height="400" alt="lizard" />
+            <img id="rock" class="default" src="images/rock.png" width="270" height="400" alt="rock" data-pick='rock' />
+            <img id="paper" src="images/paper.png" width="270" height="400" alt="paper" data-pick='rock' />
+            <img id="scissors" src="images/scissors.png" width="270" height="400" alt="scissors" data-pick='rock'/>
+            <img id="lizard" src="images/lizard.png" width="270" height="400" alt="lizard" data-pick='rock'/>
           </div>
         </div>
 
@@ -171,7 +172,7 @@
         var sam = new Player('Sam')
         var tony = new Player('Tony')
         var game = new Game(sam,tony);
-        $('.choices img').on('click', function(){
+        $('#stage img').on('click', function(){
           sam.picks($(this).data('pick'));
 
           tony.random_pick(Object.keys(game.PAIRS));
