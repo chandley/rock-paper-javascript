@@ -10,15 +10,21 @@
 
     .choices img {
       width: 15%;
-      margin-right: 2.5%;
+      margin-right: 3%;
+      margin-top: 1%;
       cursor: pointer;
       opacity: 0.5;
       transition: 1s all ease;
     }
 
-    .choices img:hover {
+    .choices img:hover {  
+      width: 16%;
       opacity: 1;
+      color: #aaa;
+      margin-right: 2%;
+      margin-top: 0%;
     }
+
 
     h2, h3 {
       text-transform: capitalize;
@@ -61,7 +67,9 @@
         var game = new Game(sam,tony);
         $('.choices img').on('click', function(){
           sam.picks($(this).data('pick'));
+
           tony.random_pick(Object.keys(game.PAIRS));
+        //  $('.choices').data(tony.pick).css({"color":"green"});
           $('#results').append('<li>' + game.winningMessage() + '</li>');
         });
       });
