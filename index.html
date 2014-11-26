@@ -6,7 +6,6 @@
     body {
       font-family: 'Helvetica Neue';
       margin: 15px 0 0 30px;
-      background-color: lightgrey;
     }
 
     .choices img {
@@ -45,7 +44,7 @@
     #page{
       /* This the main container div */
       width:1000px;
-      min-height:700px;
+      min-height:400px;
       margin:0 auto;
       background:url('img/bokeh.jpg') no-repeat 0 120px;
       position:relative;
@@ -55,7 +54,7 @@
     #phoneCarousel{
       /*	This is the carousel section, it
       contains the stage and the arrows */
-      height:390px;
+      height:300px;
       margin:90px auto 120px;
       position:relative;
       width:800px;
@@ -139,11 +138,11 @@
         <div class="next arrow"></div>
 
         <div id="stage">
-          <img id="rock" class="default" src="images/rock.png" width="270" height="400" alt="rock" data-pick='rock' />
-          <img id="paper" src="images/paper.png" width="270" height="400" alt="paper" data-pick='paper' />
-          <img id="scissors" src="images/scissors.png" width="270" height="400" alt="scissors" data-pick='scissors'/>
-          <img id="lizard" src="images/lizard.png" width="270" height="400" alt="lizard" data-pick='lizard'/>
-          <img id="spock" src="images/spock.png" width="270" height="400" alt="spock" data-pick='spock'/>
+          <img id="rock" class="default" src="images/rock.png" width="120" height="120" alt="rock" data-pick='rock' />
+          <img id="paper" class="default" src="images/paper.png" width="120" height="120" alt="paper" data-pick='paper' />
+          <img id="scissors" class="default" src="images/scissors.png" width="120" height="120" alt="scissors" data-pick='scissors'/>
+          <img id="lizard" class="default" src="images/lizard.png" width="120" height="120" alt="lizard" data-pick='lizard'/>
+          <img id="spock" class="default" src="images/spock.png" width="120" height="120" alt="spock" data-pick='spock'/>
         </div>
       </div>
 
@@ -173,7 +172,7 @@
         });
 
 
-        var deg=0;
+        var deg=18;
 
         /* Storing all the images into a variable */
 
@@ -240,15 +239,15 @@
         }
 
         // Running the animation once at load time (and moving the iPhone into view):
-        rotate(8,360/cnt);
+        rotate(7.2,360/cnt);
 
         $('#phoneCarousel .previous').click(function(){
           // 366/cnt lets us distribute the phones evenly in a circle
-          rotate(-8,360/cnt);
+          rotate(-7.2,360/cnt);
         });
 
         $('#phoneCarousel .next').click(function(){
-          rotate(8,360/cnt);
+          rotate(7.2,360/cnt);
         });
 
 
