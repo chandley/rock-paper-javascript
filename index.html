@@ -42,18 +42,22 @@
   <body>
     <h1>Rock Paper Scissors Lizard Spock</h1>
     <div class='choices'>
-      <img src="images/rock.png">
-      <img src="images/paper.png">
-      <img src="images/scissors.png">
-      <img src="images/lizard.png">
-      <img src="images/spock.png">
+      <img src="images/rock.png" data-pick='rock'>
+      <img src="images/paper.png" data-pick='paper'>
+      <img src="images/scissors.png" data-pick='scissors'>
+      <img src="images/lizard.png" data-pick='lizard'>
+      <img src="images/spock.png" data-pick='spock'>
     </div>
-    <ul id="results">
-    </ul>
+    <h2 id="results">
+    </h2>
 
     <script src='lib/Player.js'></script>
     <script src='lib/Game.js'></script>
     <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
-
+    <script>
+      $(document).ready(function(){
+        $('#results').html('Hello World');
+      });
+    </script>
   </body>
 </html>
