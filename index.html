@@ -1,0 +1,59 @@
+<!doctype>
+<html>
+  <head>
+    <title>Rock Paper Scissors Lizard Spock</title>
+    <style>
+    body {
+      font-family: 'Helvetica Neue';
+      margin: 15px 0 0 30px;
+    }
+
+    .choices img {
+      width: 15%;
+      margin-right: 2.5%;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: 1s all ease;
+    }
+
+    .choices img:hover {
+      opacity: 1;
+    }
+
+    h2, h3 {
+      text-transform: capitalize;
+    }
+
+    #results {
+      list-style: none;
+    }
+
+    #results li {
+      background: #999;
+      color: #fff;
+      font-size: 24px;
+      border-radius: 8px;
+      padding: 5px;
+      width: 80%;
+      margin-bottom: 10px;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Rock Paper Scissors Lizard Spock</h1>
+    <div class='choices'>
+      <img src="images/rock.png">
+      <img src="images/paper.png">
+      <img src="images/scissors.png">
+      <img src="images/lizard.png">
+      <img src="images/spock.png">
+    </div>
+    <ul id="results">
+    </ul>
+
+    <script src='lib/Player.js'></script>
+    <script src='lib/Game.js'></script>
+    <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+
+  </body>
+</html>
