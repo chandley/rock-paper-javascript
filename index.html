@@ -61,7 +61,7 @@
         var game = new Game(sam,tony);
         $('.choices img').on('click', function(){
           sam.picks($(this).data('pick'));
-          tony.picks('rock');
+          tony.random_pick(Object.keys(game.PAIRS));
           $('#results').append('<li>' + game.winningMessage() + '</li>');
         });
       });
