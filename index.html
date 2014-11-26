@@ -4,25 +4,10 @@
     <title>Rock Paper Scissors Lizard Spock</title>
    
     <link rel='stylesheet' type='text/css' href='css/page.css' />
+    <link rel='stylesheet' type='text/css' href='css/carousel.css' />
  <style>
-    #page{
-      /* This the main container div */
-      width:1000px;
-      min-height:700px;
-      margin:0 auto;
-      background:url('img/bokeh.jpg') no-repeat 0 120px;
-      position:relative;
-      padding-top:1px;
-    }
-
-    #choiceCarousel{
-      /*	This is the carousel section, it
-      contains the stage and the arrows */
-      height:390px;
-      margin:90px auto 120px;
-      position:relative;
-      width:800px;
-    }
+  
+    /* this code does not seem to work well in css sheet*/
 
     #choiceCarousel .arrow{
       /* The two arrows */
@@ -53,44 +38,7 @@
       background-position:right bottom;
     }
 
-    #logo{
-      background:url('img/logo.png') no-repeat;
-      height:40px;
-      text-indent:-9999px;
-      width:210px;
-      display:block;
-    }
-
-    #stage{
-      /* The stage contains the animated choice images */
-      left:50%;
-      margin-left:-350px;
-      position:absolute;
-      width:700px;
-      height:100%;
-    }
-
-    #stage img{
-      /* Hiding all the images by default */
-      display:none;
-    }
-
-    #stage .default{
-      /*	This class is applied only to the ichoice img by default
-      and it is the only one visible if JS is disabled */
-      display:block;
-      left:50%;
-      margin-left:-135px;
-      position:absolute;
-    }
-
-    #stage .animationReady{
-      /* This class is assigned to the images on load */
-      display:block;
-      position:absolute;
-      top:0;
-      left:0;
-    }
+  
     </style>
   </head>
   <body>
@@ -102,7 +50,7 @@
         <div class="next arrow"></div>
 
         <div id="stage">
-          <img id="rock" class="default" src="images/rock.png" width="270" height="400" alt="rock" data-pick='rock' />
+          <img id="rock" class="default" src="images/rock.png" width="270" height="400" alt="rock" data-pick='rock'/>
           <img id="paper" src="images/paper.png" width="270" height="400" alt="paper" data-pick='paper' />
           <img id="scissors" src="images/scissors.png" width="270" height="400" alt="scissors" data-pick='scissors'/>
           <img id="lizard" src="images/lizard.png" width="270" height="400" alt="lizard" data-pick='lizard'/>
@@ -113,9 +61,6 @@
     </div>
       <ul id="results">
       </ul>
-
-
-
 
     <script src='lib/Player.js'></script>
     <script src='lib/Game.js'></script>
@@ -134,91 +79,10 @@
           $('li:nth-child(9)').remove();
 
         });
-
-
-        var deg=0;
-
-        /* Storing all the images into a variable */
-
-        var images	= $('#stage img').removeClass('default').addClass('animationReady');
-        var dim		= { width:images.width(),height:images.height()};
-
-        var cnt = images.length;
-
-        /* Finding the centers of the animation container: */
-        var centerX = $('#stage').width()/2;
-        var centerY = $('#stage').height()/2 - dim.height/2;
-
-        function rotate(step,total){
-          // This function will loop through all the choice images, and rotate them
-          // with "step" degrees (10 in this implementation) till total > 0
-
-          /* Increment the degrees: */
-          deg+=step;
-
-          var eSin,eCos,newWidth,newHeight,q;
-
-          /* Loop through all the images: */
-          for(var i=0;i<cnt;i++){
-
-            /* Calculate the sine and cosine for the i-th image */
-
-            q = ((360/cnt)*i+deg)*Math.PI/180;
-            eSin		= Math.sin(q);
-            eCos		= Math.cos(q);
-
-            /*
-            /	With the sine value, we can calculate the vertical movement,
-            /	and the cosine will give us the horizontal movement.
-            */
-
-            q = (0.6+eSin*0.4);
-            newWidth	= q*dim.width;
-            newHeight	= q*dim.height;
-
-            /*
-            /	We are using the calculated sine value (which is in the range
-            /	of -1 to 1) to calculate the opacity and z-index. The
-            /	frontmost image has a sine value of 1, while the backmost
-            /	one has a sine value of -1.
-            */
-
-            // eq() extracts the image at the i-th position:
-
-            images.eq(i).css({
-              top			: centerY+15*eSin,
-              left		: centerX+200*eCos,
-              opacity		: 0.8+eSin*0.2,
-              marginLeft	: -newWidth/2,
-              zIndex		: Math.round(80+eSin*20)
-            }).width(newWidth).height(newHeight);
-          }
-
-          total-=Math.abs(step);
-          if(total<=0) return false;
-
-          // Setting the function to be run again in 40 milliseconds (equals to 25 frames per second):
-          setTimeout(function(){rotate(step,total)},40);
-
-        }
-
-        // Running the animation once at load time (and moving the ichoice into view):
-        rotate(8,360/cnt);
-
-        $('#choiceCarousel .previous').click(function(){
-          // 366/cnt lets us distribute the choices evenly in a circle
-          rotate(-8,360/cnt);
-        });
-
-        $('#choiceCarousel .next').click(function(){
-          rotate(8,360/cnt);
-        });
-
-
-
       });
 
 
     </script>
+    <script src='lib/carousel.js'></script>
   </body>
 </html>
