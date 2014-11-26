@@ -8,7 +8,7 @@
       padding-top:1px;
     }
 
-    #phoneCarousel{
+    #choiceCarousel{
       /*  This is the carousel section, it
       contains the stage and the arrows */
       height:390px;
@@ -17,7 +17,7 @@
       width:800px;
     }
 
-    #phoneCarousel .arrow{
+    #choiceCarousel .arrow{
       /* The two arrows */
       width:44px;
       height:44px;
@@ -29,7 +29,7 @@
       cursor:pointer;
     }
 
-    #phoneCarousel .next{
+    #choiceCarousel .next{
       /* Individual styles for the next icon */
       background-position:right top;
       left:auto;
@@ -38,11 +38,11 @@
 
     /* Hover styles */
 
-    #phoneCarousel .arrow:hover{
+    #choiceCarousel .arrow:hover{
       background-position:left bottom;
     }
 
-    #phoneCarousel .next:hover{
+    #choiceCarousel .next:hover{
       background-position:right bottom;
     }
 
@@ -55,7 +55,7 @@
     }
 
     #stage{
-      /* The stage contains the animated phone images */
+      /* The stage contains the animated choice images */
       left:50%;
       margin-left:-350px;
       position:absolute;
@@ -69,7 +69,7 @@
     }
 
     #stage .default{
-      /*  This class is applied only to the iphone img by default
+      /*  This class is applied only to the ichoice img by default
       and it is the only one visible if JS is disabled */
       display:block;
       left:50%;

@@ -15,7 +15,7 @@
       padding-top:1px;
     }
 
-    #phoneCarousel{
+    #choiceCarousel{
       /*	This is the carousel section, it
       contains the stage and the arrows */
       height:390px;
@@ -24,7 +24,7 @@
       width:800px;
     }
 
-    #phoneCarousel .arrow{
+    #choiceCarousel .arrow{
       /* The two arrows */
       width:44px;
       height:44px;
@@ -36,7 +36,7 @@
       cursor:pointer;
     }
 
-    #phoneCarousel .next{
+    #choiceCarousel .next{
       /* Individual styles for the next icon */
       background-position:right top;
       left:auto;
@@ -45,11 +45,11 @@
 
     /* Hover styles */
 
-    #phoneCarousel .arrow:hover{
+    #choiceCarousel .arrow:hover{
       background-position:left bottom;
     }
 
-    #phoneCarousel .next:hover{
+    #choiceCarousel .next:hover{
       background-position:right bottom;
     }
 
@@ -62,7 +62,7 @@
     }
 
     #stage{
-      /* The stage contains the animated phone images */
+      /* The stage contains the animated choice images */
       left:50%;
       margin-left:-350px;
       position:absolute;
@@ -76,7 +76,7 @@
     }
 
     #stage .default{
-      /*	This class is applied only to the iphone img by default
+      /*	This class is applied only to the ichoice img by default
       and it is the only one visible if JS is disabled */
       display:block;
       left:50%;
@@ -97,7 +97,7 @@
     <h1>Rock Paper Scissors Lizard Spock</h1>
     <div id="page">
 
-      <div id="phoneCarousel">
+      <div id="choiceCarousel">
         <div class="previous arrow"></div>
         <div class="next arrow"></div>
 
@@ -150,7 +150,7 @@
         var centerY = $('#stage').height()/2 - dim.height/2;
 
         function rotate(step,total){
-          // This function will loop through all the phone images, and rotate them
+          // This function will loop through all the choice images, and rotate them
           // with "step" degrees (10 in this implementation) till total > 0
 
           /* Increment the degrees: */
@@ -202,15 +202,15 @@
 
         }
 
-        // Running the animation once at load time (and moving the iPhone into view):
+        // Running the animation once at load time (and moving the ichoice into view):
         rotate(8,360/cnt);
 
-        $('#phoneCarousel .previous').click(function(){
-          // 366/cnt lets us distribute the phones evenly in a circle
+        $('#choiceCarousel .previous').click(function(){
+          // 366/cnt lets us distribute the choices evenly in a circle
           rotate(-8,360/cnt);
         });
 
-        $('#phoneCarousel .next').click(function(){
+        $('#choiceCarousel .next').click(function(){
           rotate(8,360/cnt);
         });
 
