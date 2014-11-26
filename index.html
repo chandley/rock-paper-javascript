@@ -26,11 +26,6 @@
       margin-top: 0%;
     }
 
-
-    h2, h3 {
-      text-transform: capitalize;
-    }
-
     #results {
       list-style: none;
       height: 390px;
@@ -70,7 +65,7 @@
       /* The two arrows */
       width:44px;
       height:44px;
-      background:url('images/rock.png') no-repeat;
+      background:url('images/arrows.png') no-repeat;
       position:absolute;
       top:50%;
       margin-top:-22px;
@@ -137,31 +132,26 @@
   </head>
   <body>
     <h1>Rock Paper Scissors Lizard Spock</h1>
-    <div class='choices'>
-      <img src="images/rock.png" data-pick='rock'>
-      <img src="images/paper.png" data-pick='paper'>
-      <img src="images/scissors.png" data-pick='scissors'>
-      <img src="images/lizard.png" data-pick='lizard'>
-      <img src="images/spock.png" data-pick='spock'>
+    <div id="page">
+
+      <div id="phoneCarousel">
+        <div class="previous arrow"></div>
+        <div class="next arrow"></div>
+
+        <div id="stage">
+          <img id="rock" class="default" src="images/rock.png" width="270" height="400" alt="rock" data-pick='rock' />
+          <img id="paper" src="images/paper.png" width="270" height="400" alt="paper" data-pick='paper' />
+          <img id="scissors" src="images/scissors.png" width="270" height="400" alt="scissors" data-pick='scissors'/>
+          <img id="lizard" src="images/lizard.png" width="270" height="400" alt="lizard" data-pick='lizard'/>
+          <img id="spock" src="images/spock.png" width="270" height="400" alt="spock" data-pick='spock'/>
+        </div>
+      </div>
+
     </div>
       <ul id="results">
       </ul>
 
-      <div id="page">
 
-        <div id="phoneCarousel">
-          <div class="previous arrow"></div>
-          <div class="next arrow"></div>
-
-          <div id="stage">
-            <img id="rock" class="default" src="images/rock.png" width="270" height="400" alt="rock" data-pick='rock' />
-            <img id="paper" src="images/paper.png" width="270" height="400" alt="paper" data-pick='rock' />
-            <img id="scissors" src="images/scissors.png" width="270" height="400" alt="scissors" data-pick='rock'/>
-            <img id="lizard" src="images/lizard.png" width="270" height="400" alt="lizard" data-pick='rock'/>
-          </div>
-        </div>
-
-      </div>
 
 
     <script src='lib/Player.js'></script>
@@ -250,15 +240,15 @@
         }
 
         // Running the animation once at load time (and moving the iPhone into view):
-        rotate(10,360/cnt);
+        rotate(8,360/cnt);
 
         $('#phoneCarousel .previous').click(function(){
-          // 360/cnt lets us distribute the phones evenly in a circle
-          rotate(-10,360/cnt);
+          // 366/cnt lets us distribute the phones evenly in a circle
+          rotate(-8,360/cnt);
         });
 
         $('#phoneCarousel .next').click(function(){
-          rotate(10,360/cnt);
+          rotate(8,360/cnt);
         });
 
 
