@@ -1,7 +1,7 @@
 #rotation_container{
       /* This the main container div */
       width:800px;
-      min-height:400px;
+      min-height:300px;
       margin:0 auto;
       position:relative;
       padding-top:1px;
@@ -10,7 +10,7 @@
     #choiceCarousel{
       /*  This is the carousel section, it
       contains the stage and the arrows */
-      height:300px;
+      height:200px;
       margin:90px auto 120px;
       position:relative;
       width:800px;
@@ -45,16 +45,8 @@
       background-position:right bottom;
     }
 
-    #logo{
-      background:url('img/logo.png') no-repeat;
-      height:40px;
-      text-indent:-9999px;
-      width:210px;
-      display:block;
-    }
-
-    #stage{
-      /* The stage contains the animated choice images */
+    #icons{
+      /* The icons contains the animated choice images */
       left:50%;
       margin-left:-350px;
       position:absolute;
@@ -62,24 +54,23 @@
       height:100%;
     }
 
-    #stage img{
-      /* Hiding all the images by default */
-      display:none;
-    }
-
-    #stage .default{
-      /*  This class is applied only to the ichoice img by default
-      and it is the only one visible if JS is disabled */
-      display:block;
-      left:50%;
-      margin-left:-135px;
-      position:absolute;
-    }
-
-    #stage .animationReady{
+    #icons .animationReady{
       /* This class is assigned to the images on load */
       display:block;
       position:absolute;
       top:0;
       left:0;
+    }
+
+    #icons img {
+      width: 20%;
+      margin-right: 3%;
+      margin-top: 1%;
+      cursor: pointer;
+    }
+
+    #icons img:hover {
+      width: 22%;
+      margin-right: 2%;
+      margin-top: 0%;
     }

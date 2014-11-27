@@ -5,86 +5,85 @@
 
     <link rel='stylesheet' type='text/css' href='css/page.css' />
     <link rel='stylesheet' type='text/css' href='css/carousel.css' />
- <style>
 
-    /* this code does not seem to work well in css sheet*/
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
+    <style>
+      /* this code does not seem to work well in css sheet*/
 
-    #choiceCarousel .arrow{
-      /* The two arrows */
-      width:44px;
-      height:44px;
-      background:url('images/arrows.png') no-repeat;
-      position:absolute;
-      top:50%;
-      margin-top:-22px;
-      left:0;
-      cursor:pointer;
-    }
+      #choiceCarousel .arrow{
+        /* The two arrows */
+        width:44px;
+        height:44px;
+        background:url('images/arrows.png') no-repeat;
+        position:absolute;
+        top:50%;
+        margin-top:-22px;
+        left:0;
+        cursor:pointer;
+      }
 
-    #choiceCarousel .next{
-      /* Individual styles for the next icon */
-      background-position:right top;
-      left:auto;
-      right:0;
-    }
+      #choiceCarousel .next{
+        /* Individual styles for the next icon */
+        background-position:right top;
+        left:auto;
+        right:0;
+      }
 
-    /* Hover styles */
+      /* Hover styles */
 
-    #choiceCarousel .arrow:hover{
-      background-position:left bottom;
-    }
+      #choiceCarousel .arrow:hover{
+        background-position:left bottom;
+      }
 
-    #choiceCarousel .next:hover{
-      background-position:right bottom;
-    }
+      #choiceCarousel .next:hover{
+        background-position:right bottom;
+      }
 
-
+      #image{
+        margin:100px 100px;
+      }
     </style>
   </head>
-  <body>
-    <h1>Rock Paper Scissors Lizard Spock</h1>
+  <body id="body">
     <div id="rotation_container">
 
       <div id="choiceCarousel">
         <div class="previous arrow"></div>
         <div class="next arrow"></div>
 
-        <div id="stage">
+        <div id="icons">
 
-          <img id="rock" class="default" src="images/rock.png" width="120" height="120" alt="rock" data-pick='rock' />
-          <img id="paper" class="default" src="images/paper.png" width="120" height="120" alt="paper" data-pick='paper' />
-          <img id="scissors" class="default" src="images/scissors.png" width="120" height="120" alt="scissors" data-pick='scissors'/>
-          <img id="lizard" class="default" src="images/lizard.png" width="120" height="120" alt="lizard" data-pick='lizard'/>
-          <img id="spock" class="default" src="images/spock.png" width="120" height="120" alt="spock" data-pick='spock'/>
+          <img id="rock"  src="images/rock.png" height="140" alt="rock" data-pick='rock' />
+          <img id="paper" src="images/paper.png" height="140" alt="paper" data-pick='paper' />
+          <img id="scissors" src="images/scissors.png" height="140" alt="scissors" data-pick='scissors'/>
+          <img id="lizard" src="images/lizard.png" height="140" alt="lizard" data-pick='lizard'/>
+          <img id="spock" src="images/spock.png" height="140" alt="spock" data-pick='spock'/>
 
         </div>
       </div>
 
     </div>
-      <ul id="results">
-      </ul>
+    <ul id="results">
+    </ul>
 
     <script src='lib/Player.js'></script>
     <script src='lib/Game.js'></script>
     <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
+    <script src='lib/carousel.js'></script>
     <script>
       $(document).ready(function(){
         var sam = new Player('Sam')
         var tony = new Player('Tony')
         var game = new Game(sam,tony);
-        $('#stage img').on('click', function(){
+        $('#icons img').on('click', function(){
           sam.picks($(this).data('pick'));
-
           tony.random_pick(Object.keys(game.PAIRS));
 
-          $('#results').prepend('<li>' + game.winningMessage() + '</li>');
-          $('li:nth-child(9)').remove();
-
+          $('#results').prepend('<li class='+ game.whoWon() +'>' + game.winningMessage() + '</li>');
+          $('li:nth-child(7)').remove();
         });
       });
-
-
     </script>
-    <script src='lib/carousel.js'></script>
   </body>
 </html>
