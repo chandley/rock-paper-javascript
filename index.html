@@ -62,14 +62,23 @@
 
         </div>
       </div>
-
     </div>
+
+    <script>
+      $(document).ready(function(){
+        $("#icons img").hover(function() {
+          $(this).rotate({animateTo:180})
+        },function() {
+          $(this).rotate({animateTo:0})
+        });
+      });
+    </script>
+
     <ul id="results">
     </ul>
 
     <script src='lib/Player.js'></script>
     <script src='lib/Game.js'></script>
-    <script src='http://code.jquery.com/jquery-2.1.1.min.js'></script>
     <script src='lib/carousel.js'></script>
     <script>
       $(document).ready(function(){

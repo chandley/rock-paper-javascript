@@ -46,7 +46,7 @@
     }
 
     #icons{
-      /* The icons contains the animated choice images */
+       /*The icons con/tains the animated choice images*/
       left:50%;
       margin-left:-350px;
       position:absolute;
@@ -55,14 +55,14 @@
     }
 
     #icons .animationReady{
-      /* This class is assigned to the images on load */
+       /*This class is assigned to the images on load*/
       display:block;
       position:absolute;
       top:0;
       left:0;
     }
 
-    #icons img {
+    /*#icons img {
       width: 20%;
       margin-right: 3%;
       margin-top: 1%;
@@ -73,4 +73,4 @@
       width: 22%;
       margin-right: 2%;
       margin-top: 0%;
-    }
+    }*/
