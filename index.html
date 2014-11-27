@@ -46,22 +46,15 @@
     </style>
   </head>
   <body id="body">
-    <div id="rotation_container">
+    <div id="choices">
 
-      <div id="choiceCarousel">
-        <div class="previous arrow"></div>
-        <div class="next arrow"></div>
 
-        <div id="icons">
+          <img id="rock"  src="images/rock.png" alt="rock" data-pick='rock' />
+          <img id="paper" src="images/paper.png"  alt="paper" data-pick='paper' />
+          <img id="scissors" src="images/scissors.png"  alt="scissors" data-pick='scissors'/>
+          <img id="lizard" src="images/lizard.png"  alt="lizard" data-pick='lizard'/>
+          <img id="spock" src="images/spock.png"  alt="spock" data-pick='spock'/>
 
-          <img id="rock"  src="images/rock.png" height="140" alt="rock" data-pick='rock' />
-          <img id="paper" src="images/paper.png" height="140" alt="paper" data-pick='paper' />
-          <img id="scissors" src="images/scissors.png" height="140" alt="scissors" data-pick='scissors'/>
-          <img id="lizard" src="images/lizard.png" height="140" alt="lizard" data-pick='lizard'/>
-          <img id="spock" src="images/spock.png" height="140" alt="spock" data-pick='spock'/>
-
-        </div>
-      </div>
 
     </div>
     <ul id="results">
@@ -76,9 +69,12 @@
         var sam = new Player('Sam')
         var tony = new Player('Tony')
         var game = new Game(sam,tony);
-        $('#icons img').on('click', function(){
+        $('#choices img').on('click', function(){
           sam.picks($(this).data('pick'));
           tony.random_pick(Object.keys(game.PAIRS));
+          $('[data-pick=' + sam.pick + ']').css("border-color", "red");
+          $('[data-pick=' + tony.pick + ']').css("border-color", "blue");
+          $('[data-pick=' + game.winner.pick + ']').css("border-width", "30px");
 
           $('#results').prepend('<li class='+ game.whoWon() +'>' + game.winningMessage() + '</li>');
           $('li:nth-child(7)').remove();
