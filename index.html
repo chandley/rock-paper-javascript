@@ -72,9 +72,18 @@
         $('#choices img').on('click', function(){
           sam.picks($(this).data('pick'));
           tony.random_pick(Object.keys(game.PAIRS));
+
+          var choice_index = ['rock','paper','scissors','spock','lizard']
+          for (key in choice_index){
+            $('[data-pick=' + choice_index[key] + ']').css("border-color", "grey");
+            $('[data-pick=' + choice_index[key] + ']').css("opacity", "0.6");
+          };
+
+
           $('[data-pick=' + sam.pick + ']').css("border-color", "red");
           $('[data-pick=' + tony.pick + ']').css("border-color", "blue");
-          $('[data-pick=' + game.winner.pick + ']').css("border-width", "30px");
+          $('[data-pick=' + game.winner().pick + ']').css("opacity", "1");
+          $('[data-pick=' + game.loser().pick + ']').css("opacity", "0.2");
 
           $('#results').prepend('<li class='+ game.whoWon() +'>' + game.winningMessage() + '</li>');
           $('li:nth-child(7)').remove();
