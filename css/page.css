@@ -1,8 +1,14 @@
 body {
       font-family: Cursive;
+       text-align: center;
+
     }
 
+    h1 { font-size: 80px;}
+
     #results {
+      height: 500px;
+      width: 750;
       list-style: none;
       margin-left: auto;
       margin-right: auto;
@@ -10,12 +16,13 @@ body {
       height: 390px;
       width: 750;
       overflow: hidden;
+      clear: both;
     }
 
     #results li {
       background: #999;
       color: #fff;
-      font-size: 24px;
+      font-size: 40px;
       border-radius: 8px;
       padding: 5px;
       /*width: 80%;*/
@@ -28,4 +35,58 @@ body {
 
     #results li.player2{
       background: blue;
+    }
+
+     #choices {
+      position: relative;
+      height: 1300px;
+      width: 1300px;
+      float: center;
+      margin: 0 auto;
+
+      /*overflow: hidden;*/
+     
+    }
+
+    #choices img{
+      position: absolute;
+      border-radius: 300px;
+      height: 300px;
+      border-style: solid;
+      border-width: 30px;
+      border-color: grey;
+      opacity:  0.6;
+    }
+
+    #sample {
+      background-color: yellow;
+      position: relative;
+      width: 1500px;
+    }
+
+    .choices img:hover {
+      opacity: 1;
+    }
+
+    #rock {    
+      top: 150px;
+      left: 500px;
+    }
+
+    #paper {
+      top: 390px;
+      left: 150px;
+    }
+    #lizard {
+      top: 390px;
+      left: 850px;
+    }
+    #spock {
+      top: 750px;
+      left: 300px;
+    }
+
+    #scissors{
+      top: 750px;
+      left: 720px;
     }
