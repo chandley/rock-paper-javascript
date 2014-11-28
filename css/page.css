@@ -1,5 +1,7 @@
 body {
       font-family: Cursive;
+       text-align: center;
+
     }
 
     #results {
@@ -34,10 +36,14 @@ body {
     }
 
      #choices {
-      padding: 0;
-      height: 1100px;
-      width: 1000;
-      overflow: hidden;
+      position: relative;
+      height: 1400px;
+      width: 1400px;
+      float: center;
+      margin: 0 auto;
+
+      /*overflow: hidden;*/
+     
     }
 
     #choices img{
@@ -48,6 +54,12 @@ body {
       border-width: 30px;
       border-color: grey;
       opacity:  0.6;
+    }
+
+    #sample {
+      background-color: yellow;
+      position: relative;
+      width: 1500px;
     }
 
     .choices img:hover {

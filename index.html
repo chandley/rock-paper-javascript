@@ -79,16 +79,22 @@
             $('[data-pick=' + choice_index[key] + ']').css("opacity", "0.6");
           };
 
-
-          $('[data-pick=' + sam.pick + ']').css("border-color", "red");
-          $('[data-pick=' + tony.pick + ']').css("border-color", "blue");
+       if (game.winner()) {
+          // return conditions for !game.winner()
           $('[data-pick=' + game.winner().pick + ']').css("opacity", "1");
           $('[data-pick=' + game.loser().pick + ']').css("opacity", "0.2");
-
+          $('[data-pick=' + sam.pick + ']').css("border-color", "red");
+          $('[data-pick=' + tony.pick + ']').css("border-color", "blue");
+       } else {
+          console.log('no one won');
+       };
+        
+          // test for null!
           $('#results').prepend('<li class='+ game.whoWon() +'>' + game.winningMessage() + '</li>');
           $('li:nth-child(7)').remove();
         });
       });
     </script>
   </body>
+
 </html>
